@@ -1,0 +1,35 @@
+# GitHub Actions Workflow-এর নাম
+name: 'Lighthouse CI Check'
+
+# কখন এই Workflow চলবে তা নির্ধারণ করা
+# এখানে main ব্র্যাঞ্চে কোনো কোড push করা হলে এটি ট্রিগার হবে
+on:
+  push:
+    branches:
+      - main
+
+# Workflow-এর কাজগুলো এখানে সংজ্ঞায়িত করা হয়
+jobs:
+  # 'lighthouse-check' নামে একটি জব তৈরি করা হলো
+  lighthouse-check:
+    # এই জবটি কোন অপারেটিং সিস্টেমে চলবে
+    runs-on: ubuntu-latest
+    
+    # জবের ধাপগুলো
+    steps:
+      # ১. প্রথমে রিপোজিটরির কোড চেকআউট করে
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ২. Lighthouse CI Action ব্যবহার করে লাইভ সাইট পরীক্ষা করা হবে
+      - name: Run Lighthouse CI
+        # এটি একটি জনপ্রিয় এবং নির্ভরযোগ্য Lighthouse Action
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          # এখানে আপনার Vercel-এ লাইভ হওয়া সাইটের URL টি দিতে হবে।
+          # এটি অবশ্যই 'https://' দিয়ে শুরু হতে হবে।
+          urls: |
+            https://your-vercel-project-url.vercel.app
+          
+          # পরীক্ষার ফলাফল হিসেবে একটি আর্টিফ্যাক্ট আপলোড করবে, যা আপনি ডাউনলোড করতে পারবেন
+          uploadArtifacts: true
