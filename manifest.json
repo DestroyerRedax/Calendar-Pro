@@ -32,29 +32,16 @@
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/android/android-launchericon-512-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshots/mobile.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/screenshots/desktop.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ],
   "shortcuts": [
     {
       "name": "সরকারি ছুটির তালিকা",
+      "short_name": "ছুটি",
       "url": "/",
       "icons": [{ "src": "/android/android-launchericon-96-96.png", "sizes": "96x96", "type": "image/png" }]
     }
