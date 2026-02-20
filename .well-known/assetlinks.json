@@ -1,0 +1,11 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.mythbrix.calendar_pro",
+    "sha256_cert_fingerprints": [
+      "24:3E:19:42:39:44:7D:04:5E:72:C8:BB:1F:16:40:06:01:D4:4D:E4:A3:B7:13:C3:9C:19:9D:41:A8:1A:FE:8B"
+    ]
+  }
+}]
+
