@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="bn" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Premium Calendar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { mint: '#0d9488', softMint: '#f0fdfa' } } } }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="bg-[#f8fafc] text-slate-700 h-[100dvh] flex flex-col overflow-hidden font-sans transition-colors duration-500">
+
+    <div class="max-w-4xl mx-auto w-full h-full p-3 flex flex-col gap-4">
+        <!-- Header Controls -->
+        <header class="flex flex-col gap-4 shrink-0 mt-2">
+            <div class="flex justify-between items-center px-1">
+                <div class="flex bg-slate-200/50 rounded-2xl p-1 shadow-inner" id="view-toggle">
+                    <button data-view="en" class="segment-btn px-5 py-1.5 text-xs font-bold rounded-xl text-mint transition-all">English</button>
+                    <button data-view="bn" class="segment-btn px-5 py-1.5 text-xs font-bold rounded-xl text-slate-500 transition-all">বাংলা</button>
+                    <button data-view="ar" class="segment-btn px-5 py-2 text-xs font-black rounded-xl text-slate-500 transition-all">عربي</button>
+                </div>
+                <button id="full-holiday-btn" class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-100 rounded-2xl shadow-sm text-mint active:scale-95 transition-all">
+                    <span class="text-xs font-bold">📅 ছুটির তালিকা</span>
+                </button>
+            </div>
+
+            <div class="bg-white/70 backdrop-blur-md p-4 rounded-[2.5rem] shadow-sm border border-slate-50">
+                <div class="flex items-center justify-between">
+                    <button id="prev-btn" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-50 text-xl transition-all">❮</button>
+                    <div class="text-center grow">
+                        <h2 id="header-primary-label" class="text-2xl font-black text-slate-800 tracking-tight"></h2>
+                        <p id="header-secondary-label" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1"></p>
+                    </div>
+                    <button id="next-btn" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-50 text-xl transition-all">❯</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Calendar Main Grid -->
+        <main class="flex-1 flex flex-col bg-white/50 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white shadow-sm relative">
+            <div id="weekday-headers" class="grid grid-cols-7 border-b border-slate-50 bg-slate-50/20"></div>
+            <div id="calendar-grid" class="grid grid-cols-7 flex-1 auto-rows-fr"></div>
+        </main>
+
+        <!-- Footer Branding -->
+        <footer class="mt-auto py-2 text-center shrink-0">
+            <p class="text-[10px] font-bold text-slate-300 tracking-[0.4em] uppercase">
+                developed by <span class="text-mint/60 font-black">Mythbrix</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="fixed inset-0 bg-slate-900/30 backdrop-blur-sm z-[99] hidden opacity-0 transition-opacity"></div>
+    <div id="holiday-modal" class="modal-box fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] max-w-[350px] bg-white rounded-[2.5rem] shadow-2xl z-[100] hidden p-8 border border-white">
+        <div class="flex justify-between items-start mb-6">
+            <h3 id="modal-date-title" class="text-xl font-bold text-slate-800 leading-tight"></h3>
+            <button class="close-modal text-3xl font-light text-slate-300 hover:text-slate-500 transition-colors">&times;</button>
+        </div>
+        <div id="modal-holidays-list" class="space-y-3"></div>
+    </div>
+
+    <div id="full-holiday-modal" class="modal-box fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[450px] h-[75vh] bg-white rounded-[2.5rem] shadow-2xl z-[100] hidden p-7 flex flex-col border border-white transition-all transform scale-95">
+        <div class="flex justify-between items-center mb-5 shrink-0">
+            <h3 class="text-xl font-black text-mint">সরকারি ছুটির তালিকা ২০২৬</h3>
+            <button class="close-modal text-3xl font-light text-slate-300">&times;</button>
+        </div>
+        <div id="full-holiday-content" class="overflow-y-auto space-y-3 pr-2 flex-1 scroll-smooth"></div>
+    </div>
+
+    <script src="calendar-math.js"></script>
+    <script src="holidays.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

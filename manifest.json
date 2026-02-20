@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "BD Calendar Pro 2026",
+  "short_name": "Calendar",
+  "description": "Premium Gregorian, Bengali, and Arabic Hijri Calendar with official holidays of Bangladesh.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0d9488",
+  "lang": "bn",
+  "dir": "auto",
+  "orientation": "portrait",
+  "categories": ["productivity", "utilities", "education"],
+  "icons": [
+    { "src": "android/android-launchericon-512-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "android/android-launchericon-192-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "ios/180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icons/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "screenshots/mobile.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow" },
+    { "src": "screenshots/desktop.png", "sizes": "1920x1080", "type": "image/png", "form_factor": "wide" }
+  ],
+  "shortcuts": [
+    {
+      "name": "সরকারি ছুটির তালিকা",
+      "url": "/",
+      "icons": [{ "src": "android/android-launchericon-96-96.png", "sizes": "96x96" }]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+/* style.css */
+* { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+
+#calendar-grid { grid-template-rows: repeat(6, 1fr); gap: 6px; padding: 12px; }
+
+.calendar-cell {
+    background: rgba(255, 255, 255, 0.6); border-radius: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; transition: all 0.2s ease; border: 1px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+.calendar-cell:active { transform: scale(0.92); background: #f0fdfa; }
+
+.date-main { font-size: 1.6rem; font-weight: 700; color: #334155; }
+.date-top-left { position: absolute; top: 6px; left: 10px; font-size: 0.8rem; font-weight: 700; color: #0d9488; }
+.date-bottom-right { position: absolute; bottom: 6px; right: 10px; font-size: 0.8rem; font-weight: 700; color: #f59e0b; }
+
+.calendar-cell.weekend { background: #fff9f9; border-color: #fee2e2; }
+.calendar-cell.weekend .date-main, .calendar-cell.weekend .date-top-left, .calendar-cell.weekend .date-bottom-right { color: #f43f5e !important; }
+
+/* Today Style */
+.is-today {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.02) 100%) !important;
+    border: 2.2px solid #0d9488 !important;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+}
+
+.weekday-header { padding: 10px 0; text-align: center; font-weight: 700; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; }
+.weekday-header:first-child, .weekday-header:last-child { color: #f43f5e; }
+
+.holiday-dot { width: 6px; height: 6px; background: #f43f5e; border-radius: 50%; position: absolute; top: 10px; right: 10px; }
+
+.modal-box.show { display: block !important; opacity: 1 !important; transform: translate(-50%, -50%) scale(1) !important; }
+#full-holiday-modal.show { display: flex !important; }
+.muted { opacity: 0; pointer-events: none; }
+
+select { border: none; background: transparent; font-weight: 900; cursor: pointer; }
+#full-holiday-content::-webkit-scrollbar { width: 5px; }
+#full-holiday-content::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
